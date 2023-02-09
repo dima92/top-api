@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ModelType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
-import { ReviewModel } from 'src/review/review.model';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FindProductDto } from './dto/find-product.dto';
 import { ProductModel } from './product.model';
@@ -60,10 +59,6 @@ export class ProductService {
           },
         },
       ])
-      .exec() as unknown as (ProductModel & {
-      review: ReviewModel[];
-      reviewCount: number;
-      reviewAvg: number;
-    })[];
+      .exec();
   }
 }
