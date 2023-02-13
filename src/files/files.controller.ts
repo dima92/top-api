@@ -19,7 +19,7 @@ export class FilesController {
   @Post('upload')
   @HttpCode(200)
   @UseGuards(JwtAuthGuard)
-  @UseInterceptors(FileInterceptor('files'))
+  @UseInterceptors(FileInterceptor('file'))
   async uploadFiles(
     @UploadedFile() file: Express.Multer.File,
   ): Promise<FileElementResponse[]> {
